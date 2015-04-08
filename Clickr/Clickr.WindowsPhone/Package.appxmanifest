@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="055ac2fd-46cd-49a2-8d3b-2692e3dc86a4" Publisher="CN=Thiago" Version="0.2.1.0" />
-  <mp:PhoneIdentity PhoneProductId="055ac2fd-46cd-49a2-8d3b-2692e3dc86a4" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="60468thiagosgarcia.ClickrCounter" Publisher="CN=38486C13-6514-44E5-83AF-04DB25A26A65" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="b7cee58a-16f4-4710-b3a7-7d71d87ce517" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>tgarcia.Clickr</DisplayName>
-    <PublisherDisplayName>tgarcia</PublisherDisplayName>
+    <DisplayName>Clickr Counter</DisplayName>
+    <PublisherDisplayName>thiagosgarcia</PublisherDisplayName>
     <Logo>img\clickr50.png</Logo>
   </Properties>
   <Prerequisites>
