@@ -20,10 +20,17 @@
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)img\clickr.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr150.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr30.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr300.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr310.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr310310.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr358.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr44.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr50.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr70.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr71.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr800.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickrSplash.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickrSplash2.png" />
   </ItemGroup>
 </Project>

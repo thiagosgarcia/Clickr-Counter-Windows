@@ -7,7 +7,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid  Margin="0,0,0,0"  RenderTransformOrigin="0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Tapped="Grid_Tapped" Margin="0,0,0,0" DoubleTapped="Grid_DoubleTapped" RenderTransformOrigin="0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image x:Name="ClickerImg" HorizontalAlignment="Left" Height="427" VerticalAlignment="Top" Width="380" Source="img/clickr.png" RequestedTheme="Dark" Margin="10,96,10,117"/>
+            <Rectangle HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="172" Margin="92,285,0,0">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF3A393E" Offset="1"/>
+                        <GradientStop Color="#FF5D5E65"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <TextBlock x:Name="CounterLabel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="00000" VerticalAlignment="Top" Height="53" Width="172" FontWeight="Bold" FontSize="48" CharacterSpacing="70" TextAlignment="Center" Foreground="White" RenderTransformOrigin="0.39,-1.441" Margin="89,284,0,0"/>
+            <TextBlock x:Name="PredictionLabel" HorizontalAlignment="Left" Margin="10,528,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Height="30" SelectionHighlightColor="{x:Null}" Text="Pace" TextAlignment="Center" FontSize="24" DoubleTapped="ResetLabelWarn_DoubleTapped" Tapped="ResetLabelWarn_Tapped" />
+
+        </Grid>
+        <TextBlock x:Name="ResetLabelWarn" HorizontalAlignment="Left" Margin="1,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Height="30" SelectionHighlightColor="{x:Null}" Text="Double tap to Reset" TextAlignment="Center" FontSize="24" DoubleTapped="ResetLabelWarn_DoubleTapped" Tapped="ResetLabelWarn_Tapped"/>
+        <TextBlock x:Name="ResetLabel" HorizontalAlignment="Left" Margin="313,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" Height="98" Tapped="Reset_Tapped" SelectionHighlightColor="{x:Null}" DoubleTapped="ResetLabel_DoubleTapped"/>
 
     </Grid>
+
 </Page>

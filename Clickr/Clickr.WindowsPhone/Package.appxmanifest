@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="60468thiagosgarcia.ClickrCounter" Publisher="CN=38486C13-6514-44E5-83AF-04DB25A26A65" Version="1.1.0.0" />
+  <Identity Name="60468thiagosgarcia.ClickrCounter" Publisher="CN=38486C13-6514-44E5-83AF-04DB25A26A65" Version="1.2.0.2" />
   <mp:PhoneIdentity PhoneProductId="b7cee58a-16f4-4710-b3a7-7d71d87ce517" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Clickr Counter</DisplayName>
-    <PublisherDisplayName>thiagosgarcia</PublisherDisplayName>
+    <PublisherDisplayName>tgarcia</PublisherDisplayName>
     <Logo>img\clickr50.png</Logo>
   </Properties>
   <Prerequisites>
@@ -16,7 +16,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Clickr.WindowsPhone.App">
-      <m3:VisualElements DisplayName="Clickr" Square150x150Logo="img\clickr150.png" Square44x44Logo="img\clickr44.png" Description="Clickr. The simplest counter app, a clicker to whenever you need to count something." ForegroundText="light" BackgroundColor="transparent" ToastCapable="false">
+      <m3:VisualElements DisplayName="Clickr Counter" Square150x150Logo="img\clickr150.png" Square44x44Logo="img\clickr44.png" Description="Clickr. The simplest counter app, a clicker to whenever you need to count something." ForegroundText="light" BackgroundColor="transparent" ToastCapable="false">
         <m3:DefaultTile Square71x71Logo="img\clickr71.png" Wide310x150Logo="img\clickr310.png">
           <m3:ShowNameOnTiles>
             <m3:ShowOn Tile="square150x150Logo" />
@@ -24,6 +24,9 @@
           </m3:ShowNameOnTiles>
         </m3:DefaultTile>
         <m3:SplashScreen Image="img\clickrSplash.png" />
+        <m3:InitialRotationPreference>
+          <m3:Rotation Preference="portrait" />
+        </m3:InitialRotationPreference>
       </m3:VisualElements>
     </Application>
   </Applications>

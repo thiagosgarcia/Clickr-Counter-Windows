@@ -1,41 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-
-  <Identity Name="ab9ca90c-a2ba-4ff8-8fd0-1887266da5a7"
-            Publisher="CN=Thiago"
-            Version="1.0.0.0" />
-
+  <Identity Name="60468thiagosgarcia.ClickrCounter" Publisher="CN=38486C13-6514-44E5-83AF-04DB25A26A65" Version="1.1.0.0" />
   <Properties>
-    <DisplayName>Clickr.Windows</DisplayName>
-    <PublisherDisplayName>Thiago</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
+    <DisplayName>Clickr Counter</DisplayName>
+    <PublisherDisplayName>tgarcia</PublisherDisplayName>
+    <Logo>img\clickr50.png</Logo>
   </Properties>
-
   <Prerequisites>
     <OSMinVersion>6.3.0</OSMinVersion>
     <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
   </Prerequisites>
-
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-        Executable="$targetnametoken$.exe"
-        EntryPoint="Clickr.Windows.App">
-        <m2:VisualElements
-            DisplayName="Clickr.Windows"
-            Square150x150Logo="Assets\Logo.png"
-            Square30x30Logo="Assets\SmallLogo.png"
-            Description="Clickr.Windows"
-            ForegroundText="light"
-            BackgroundColor="#464646">
-            <m2:SplashScreen Image="Assets\SplashScreen.png" />
-        </m2:VisualElements>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Clickr.Windows.App">
+      <m2:VisualElements DisplayName="Clickr Counter" Square150x150Logo="img\clickr150.png" Square30x30Logo="img\clickr30.png" Description="Clickr. The simplest counter app, a clicker to whenever you need to count something." ForegroundText="light" BackgroundColor="#464646">
+        <m2:DefaultTile Square310x310Logo="img\clickr310310.png" Wide310x150Logo="img\clickr310.png" Square70x70Logo="img\clickr70.png" ShortName="Clickr">
+          <m2:ShowNameOnTiles>
+            <m2:ShowOn Tile="square150x150Logo" />
+            <m2:ShowOn Tile="wide310x150Logo" />
+            <m2:ShowOn Tile="square310x310Logo" />
+          </m2:ShowNameOnTiles>
+        </m2:DefaultTile>
+        <m2:SplashScreen Image="img\clickrSplash2.png" />
+        <m2:InitialRotationPreference>
+          <m2:Rotation Preference="landscape" />
+        </m2:InitialRotationPreference>
+      </m2:VisualElements>
     </Application>
   </Applications>
-  <Capabilities>
-    <Capability Name="internetClient" />
-  </Capabilities>
 </Package>
