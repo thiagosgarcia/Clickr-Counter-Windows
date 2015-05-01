@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="60468thiagosgarcia.ClickrCounter" Publisher="CN=38486C13-6514-44E5-83AF-04DB25A26A65" Version="1.1.0.0" />
+  <Identity Name="60468thiagosgarcia.ClickrCounter" Publisher="CN=38486C13-6514-44E5-83AF-04DB25A26A65" Version="1.3.0.1" />
   <Properties>
     <DisplayName>Clickr Counter</DisplayName>
     <PublisherDisplayName>tgarcia</PublisherDisplayName>
@@ -25,7 +25,10 @@
         </m2:DefaultTile>
         <m2:SplashScreen Image="img\clickrSplash2.png" />
         <m2:InitialRotationPreference>
+          <m2:Rotation Preference="portrait" />
           <m2:Rotation Preference="landscape" />
+          <m2:Rotation Preference="portraitFlipped" />
+          <m2:Rotation Preference="landscapeFlipped" />
         </m2:InitialRotationPreference>
       </m2:VisualElements>
     </Application>

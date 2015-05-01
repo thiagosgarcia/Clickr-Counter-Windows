@@ -353,8 +353,15 @@
       <ReservedName>Clickr Counter</ReservedName>
       <ReservedName>Contador Click</ReservedName>
       <ReservedName>Contador Clique</ReservedName>
+      <ReservedName>Clicker Contador</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames />
-  <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/74ca3f4d-3188-46e4-87ca-081f6e34a908" />
+  <PackageInfoList LandingUrl="https://appdev.microsoft.com:443/StorePortals/Developer/Catalog/ReleaseAnchor/74ca3f4d-3188-46e4-87ca-081f6e34a908">
+    <PackageInfo>
+      <OsMinVersion>6.3.0.0</OsMinVersion>
+      <PackageArchitecture>neutral</PackageArchitecture>
+      <PackageMaxArchitectureVersion>1.1.0.0</PackageMaxArchitectureVersion>
+    </PackageInfo>
+  </PackageInfoList>
 </StoreAssociation>

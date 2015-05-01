@@ -46,9 +46,6 @@ namespace Clickr
         private void ResetLabel_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
             Reset();
-
-            Windows.System.Launcher.LaunchUriAsync(
-                new Uri("ms-windows-store:reviewapp?appid=4b4ad23b-5625-40fa-82a7-59f9e8e67f01"));
         }
 
         private void ResetLabelWarn_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)

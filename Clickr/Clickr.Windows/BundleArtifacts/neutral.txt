@@ -1,0 +1,4 @@
+MainPackage=B:\apps\dev\CSharp\Clickr\Clickr\Clickr.Windows\bin\Release\Clickr.Windows_1.3.0.1_Bundle\Clickr.Windows_1.3.0.1_AnyCPU.appx
+SymbolPackage=B:\apps\dev\CSharp\Clickr\Clickr\Clickr.Windows\AppPackages\Clickr.Windows_1.3.0.1_Test\Clickr.Windows_1.3.0.1_AnyCPU.appxsym
+ResourcePack=B:\apps\dev\CSharp\Clickr\Clickr\Clickr.Windows\bin\Release\Clickr.Windows_1.3.0.1_Bundle\Clickr.Windows_1.3.0.1_scale-140.appx
+ResourcePack=B:\apps\dev\CSharp\Clickr\Clickr\Clickr.Windows\bin\Release\Clickr.Windows_1.3.0.1_Bundle\Clickr.Windows_1.3.0.1_scale-180.appx

@@ -19,18 +19,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)img\clickr.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr1152.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr120.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr150.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr150.scale-80.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr30.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr300.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr310.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr310310.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr358.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr414.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr44.png" />
-    <Content Include="$(MSBuildThisFileDirectory)img\clickr50.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr480_.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr50.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr50.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr50.scale-240.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr50_.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr558.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr558558.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr672.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr70.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr71.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickr800.png" />
-    <Content Include="$(MSBuildThisFileDirectory)img\clickrSplash.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr846.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickr90.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickrSplash.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickrSplash.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)img\clickrSplash.scale-240.png" />
     <Content Include="$(MSBuildThisFileDirectory)img\clickrSplash2.png" />
   </ItemGroup>
 </Project>

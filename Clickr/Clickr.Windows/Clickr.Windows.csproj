@@ -126,6 +126,9 @@
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="img\clickr150.scale-100.png" />
+    <Content Include="img\clickr50.scale-100.png" />
+    <Content Include="img\clickr50.scale-180.png" />
     <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
   <ItemGroup>
