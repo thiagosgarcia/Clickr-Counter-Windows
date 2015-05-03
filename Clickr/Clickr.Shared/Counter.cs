@@ -6,18 +6,20 @@ namespace Clickr
 {
     public class Counter
     {
-        public Counter()
+        public Counter(int init)
         {
-            Count = 0;
+            Count = init;
             ResetPrediction();
         }
 
+        public Persistence Persistence { get { return Persistence.GetInstance(); } }
         private static Counter _counter = null;
-        public static Counter GetInstance()
+        public static Counter GetInstance(int init = 0)
         {
-            return _counter = _counter ?? new Counter();
+            return _counter = init > 0 ? new Counter(init) : _counter ?? new Counter(init);
         }
         public int Count { get; set; }
+        public string CountString { get { return Count.ToString("00000"); } }
 
         public int Click()
         {
@@ -27,6 +29,8 @@ namespace Clickr
             {
                 StartPrediction(Count);
             }
+
+            Persistence.SaveLast(Count.ToString());
 
             LastClickShowPredictions = ShowPredictions;
             return Count = Count > 99999 ? 0 : Count;
@@ -41,6 +45,7 @@ namespace Clickr
         public int Reset()
         {
             ResetPrediction();
+            Persistence.SaveLast("0");
             return Count = 0;
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using Windows.ApplicationModel;
 using Windows.ApplicationModel.Store;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -35,11 +36,22 @@ namespace Clickr
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
-            HideWarning();
-            ShowPredictions();
+            InitializeCounter();
         }
 
         public Counter Counter { get { return Counter.GetInstance(); } }
+        public Persistence Persistence { get { return Persistence.GetInstance(); } }
+
+        private async void InitializeCounter()
+        {
+            CounterLabel.Text = await Persistence.ReadLast();
+            var aux = int.Parse(CounterLabel.Text);
+            CounterLabel.Text = aux.ToString("00000");
+            Counter.GetInstance(aux);
+
+            HideWarning();
+            ShowPredictions();
+        }
 
         private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
         {
