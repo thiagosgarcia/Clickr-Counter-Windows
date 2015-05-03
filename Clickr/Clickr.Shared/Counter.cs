@@ -19,6 +19,8 @@ namespace Clickr
             return _counter = init > 0 ? new Counter(init) : _counter ?? new Counter(init);
         }
         public int Count { get; set; }
+        public int MaxPace { get; set; }
+        public DateTime SaveTime { get; set; }
         public string CountString { get { return Count.ToString("00000"); } }
 
         public int Click()
@@ -30,10 +32,18 @@ namespace Clickr
                 StartPrediction(Count);
             }
 
-            Persistence.SaveLast(Count.ToString());
+            SaveCount();
 
             LastClickShowPredictions = ShowPredictions;
             return Count = Count > 99999 ? 0 : Count;
+        }
+
+        private void SaveCount()
+        {
+            if (SaveTime.AddSeconds(2) > DateTime.Now)
+                return;
+            Persistence.SaveLast(Count.ToString());
+            SaveTime = DateTime.Now;
         }
 
         private void StartPrediction(int count)
@@ -65,6 +75,9 @@ namespace Clickr
 
             var diff = now - StartTime;
             var pace = (actual - StartCount) / (diff.TotalSeconds / 60);
+
+            if (MaxPace < pace)
+                MaxPace = (int) pace;
 
             return string.Concat("Pace: ", pace.ToString("#0"), " clicks/min");
         }

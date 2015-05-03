@@ -38,9 +38,9 @@ namespace Clickr
         private async Task<string> Read(string name)
         {
             var result = "00000";
-            if (LocalFolder != null)
+            try
             {
-                try
+                if (LocalFolder != null)
                 {
                     var dataFolder = await LocalFolder.GetFolderAsync("DataFolder");
                     var file = await dataFolder.OpenStreamForReadAsync(FileName(name));
@@ -49,24 +49,31 @@ namespace Clickr
                         result = streamReader.ReadToEnd();
                     }
                 }
-                catch
-                {
-                    // ignored
-                }
+            }
+            catch
+            {
+                // ignored
             }
             return result.ToString();
         }
 
         private async void Save(string value, string name)
         {
-            byte[] fileBytes = Encoding.UTF8.GetBytes(value.ToString().ToCharArray());
-            var dataFolder = await LocalFolder.CreateFolderAsync("DataFolder",
-                CreationCollisionOption.OpenIfExists);
-            var file = await dataFolder.CreateFileAsync(FileName(name),
-            CreationCollisionOption.ReplaceExisting);
-            using (var s = await file.OpenStreamForWriteAsync())
+            try
             {
-                s.Write(fileBytes, 0, fileBytes.Length);
+                byte[] fileBytes = Encoding.UTF8.GetBytes(value.ToString().ToCharArray());
+                var dataFolder = await LocalFolder.CreateFolderAsync("DataFolder",
+                    CreationCollisionOption.OpenIfExists);
+                var file = await dataFolder.CreateFileAsync(FileName(name),
+                CreationCollisionOption.ReplaceExisting);
+                using (var s = await file.OpenStreamForWriteAsync())
+                {
+                    s.Write(fileBytes, 0, fileBytes.Length);
+                }
+            }
+            catch
+            {
+                // ignored
             }
         }
 

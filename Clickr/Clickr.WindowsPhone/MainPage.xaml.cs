@@ -54,6 +54,12 @@ namespace Clickr
 
             HideWarning();
             ShowPredictions();
+            ShowMaxPace();
+        }
+
+        private void ShowMaxPace()
+        {
+            MaxPaceButton.Label = "Max pace: " + Counter.MaxPace;
         }
 
         private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
@@ -106,7 +112,10 @@ namespace Clickr
         {
             var p = Counter.Predict();
             if (PredictionLabel.Visibility == Visibility.Visible)
+            {
                 PredictionLabel.Text = p;
+                ShowMaxPace();
+            }
         }
 
         private void Reset()
@@ -190,9 +199,10 @@ namespace Clickr
                           "speed counting will restart too even thought it saves the last count number.\n" +
                           "Functionality -> The app saves the last count number, and when started, " +
                           "the count begins from the number it was before.\n" +
-                          "Max Pace      -> I bet you may have some fun competing with others :)\n\n" +
-                                   "If you have any questions, please, mail me: " +
-                                   Commands.Email;
+                          "Max Pace      -> Max pace for the session. I bet you may have some fun " +
+                          "competing with others :)\n\n" +
+                            "If you have any questions, please, mail me: " +
+                            Commands.Email;
             var msgbox = new MessageDialog(content, "About");
             msgbox.Commands.Add(new UICommand("OK"));
             msgbox.Commands.Add(new UICommand("Mail developer") { Invoked = command => Commands.Mail() });
