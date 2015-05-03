@@ -1,6 +1,8 @@
 ﻿using System;
 using Windows.ApplicationModel;
+using Windows.ApplicationModel.Email;
 using Windows.ApplicationModel.Store;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -41,6 +43,7 @@ namespace Clickr
 
         public Counter Counter { get { return Counter.GetInstance(); } }
         public Persistence Persistence { get { return Persistence.GetInstance(); } }
+        public Commands Commands { get { return new PhoneCommands(); } }
 
         private async void InitializeCounter()
         {
@@ -102,7 +105,7 @@ namespace Clickr
         private void Predict()
         {
             var p = Counter.Predict();
-            if(PredictionLabel.Visibility == Visibility.Visible)
+            if (PredictionLabel.Visibility == Visibility.Visible)
                 PredictionLabel.Text = p;
         }
 
@@ -149,8 +152,32 @@ namespace Clickr
 
         private void RateAndReviewButton_Clicked(object sender, RoutedEventArgs e)
         {
+            Rate();
+        }
+
+        private static void Rate()
+        {
             Windows.System.Launcher.LaunchUriAsync(
                 new Uri("ms-windows-store:reviewapp?appid=4b4ad23b-5625-40fa-82a7-59f9e8e67f01"));
+        }
+
+
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            var msgbox = new MessageDialog("Clickr Counter\n" +
+                                                     "Developed by Thiago Garcia\n\n" +
+                                                     "Hope you find it app helpful. It was for me " +
+                                                     "when I needed a counter and didn't have the " +
+                                                     "real counter machine.\n" +
+                                                     "Thanks for downloading! If you liked and have a minute" +
+                                                     ", please, rate it. I appreciate :)\n\n" +
+                                                     "If you have any questions, please, mail me: " +
+                                                     "", "About");
+            msgbox.Commands.Clear();
+            msgbox.Commands.Add(new UICommand("Sure, rate this app!") { Invoked = command => Rate() });
+            msgbox.Commands.Add(new UICommand("Mail developer") { Invoked = command => Commands.Mail() });
+            msgbox.Commands.Add(new UICommand("Close"));
+            msgbox.CancelCommandIndex = 2;
         }
     }
 }

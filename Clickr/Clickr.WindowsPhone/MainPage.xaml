@@ -12,6 +12,9 @@
             <CommandBar.SecondaryCommands>
                 <AppBarToggleButton x:Name="ShowPredictionsButton" Label="Show predictions" Checked="ShowPredictionsButton_Checked" Unchecked="ShowPredictionsButton_Unchecked" IsChecked="True"/>
                 <AppBarToggleButton x:Name="RateAndReviewButton" Label="Rate and review this app!"  Click="RateAndReviewButton_Clicked" />
+                <AppBarToggleButton x:Name="AboutButton" Label="About..." Click="AboutButton_Click"  >
+                    <AppBarButton Height="100" Icon="Accept" Label="appbarbutton" Width="100"/>
+                </AppBarToggleButton>
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
