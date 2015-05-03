@@ -161,23 +161,44 @@ namespace Clickr
                 new Uri("ms-windows-store:reviewapp?appid=4b4ad23b-5625-40fa-82a7-59f9e8e67f01"));
         }
 
-
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
-            var msgbox = new MessageDialog("Clickr Counter\n" +
-                                                     "Developed by Thiago Garcia\n\n" +
-                                                     "Hope you find it app helpful. It was for me " +
-                                                     "when I needed a counter and didn't have the " +
-                                                     "real counter machine.\n" +
-                                                     "Thanks for downloading! If you liked and have a minute" +
-                                                     ", please, rate it. I appreciate :)\n\n" +
-                                                     "If you have any questions, please, mail me: " +
-                                                     "", "About");
-            msgbox.Commands.Clear();
+            var content = "Clickr Counter\n" +
+                                   "Developed by Thiago Garcia\n\n" +
+                                   "Hope you find it app helpful. It was for me " +
+                                   "when I needed a counter and didn't have the " +
+                                   "real counter machine.\n" +
+                                   "Thanks for downloading! If you liked and have a minute" +
+                                   ", please, rate it. I really appreciate :)\n\n" +
+                                   "If you have any questions, please, mail me: " +
+                                   Commands.Email;
+            var msgbox = new MessageDialog(content, "About");
             msgbox.Commands.Add(new UICommand("Sure, rate this app!") { Invoked = command => Rate() });
             msgbox.Commands.Add(new UICommand("Mail developer") { Invoked = command => Commands.Mail() });
-            msgbox.Commands.Add(new UICommand("Close"));
-            msgbox.CancelCommandIndex = 2;
+
+            msgbox.ShowAsync();
+        }
+
+        private void InstructionsButton_Click(object sender, RoutedEventArgs e)
+        {
+            var content = "Clickr Counter Instructions\n\n" +
+                          "Counter       -> Just tap anywhere in the image and you'll be " +
+                          "counting anything you want.\n" +
+                          "Pace          -> It shows the average speed you're counting following " +
+                          "these rules: 1) If you hide predictions, it will restart the pace " +
+                          "counting when you show predictions again; 2) If you close the app, " +
+                          "speed counting will restart too even thought it saves the last count number.\n" +
+                          "Functionality -> The app saves the last count number, and when started, " +
+                          "the count begins from the number it was before.\n" +
+                          "Max Pace      -> I bet you may have some fun competing with others :)\n\n" +
+                                   "If you have any questions, please, mail me: " +
+                                   Commands.Email;
+            var msgbox = new MessageDialog(content, "About");
+            msgbox.Commands.Add(new UICommand("OK"));
+            msgbox.Commands.Add(new UICommand("Mail developer") { Invoked = command => Commands.Mail() });
+            msgbox.CancelCommandIndex = 0;
+
+            msgbox.ShowAsync();
         }
     }
 }
