@@ -40,7 +40,7 @@ namespace Clickr
 
         private void SaveCount()
         {
-            if (SaveTime.AddSeconds(2) > DateTime.Now)
+            if (SaveTime.AddSeconds(3) > DateTime.Now)
                 return;
             Persistence.SaveLast(Count.ToString());
             SaveTime = DateTime.Now;
@@ -77,7 +77,7 @@ namespace Clickr
             var pace = (actual - StartCount) / (diff.TotalSeconds / 60);
 
             if (MaxPace < pace)
-                MaxPace = (int) pace;
+                MaxPace = (int)pace;
 
             return string.Concat("Pace: ", pace.ToString("#0"), " clicks/min");
         }

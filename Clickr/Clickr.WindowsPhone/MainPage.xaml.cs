@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Email;
 using Windows.ApplicationModel.Store;
@@ -39,6 +41,7 @@ namespace Clickr
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
             InitializeCounter();
+
         }
 
         public Counter Counter { get { return Counter.GetInstance(); } }
@@ -178,8 +181,8 @@ namespace Clickr
                                    "when I needed a counter and didn't have the " +
                                    "real counter machine.\n" +
                                    "Thanks for downloading! If you liked and have a minute" +
-                                   ", please, rate it. I really appreciate :)\n\n" +
-                                   "If you have any questions, please, mail me: " +
+                                   ", please, rate it. I'd really appreciate :)\n\n" +
+                                   "If you have any questions, mail me: " +
                                    Commands.Email;
             var msgbox = new MessageDialog(content, "About");
             msgbox.Commands.Add(new UICommand("Sure, rate this app!") { Invoked = command => Rate() });
@@ -191,17 +194,18 @@ namespace Clickr
         private void InstructionsButton_Click(object sender, RoutedEventArgs e)
         {
             var content = "Clickr Counter Instructions\n\n" +
-                          "Counter       -> Just tap anywhere in the image and you'll be " +
+                          " - Counter       -> Just tap anywhere in the image and you'll be " +
                           "counting anything you want.\n" +
-                          "Pace          -> It shows the average speed you're counting following " +
+                          " - Pace          -> It shows the average speed you're counting following " +
                           "these rules: 1) If you hide predictions, it will restart the pace " +
                           "counting when you show predictions again; 2) If you close the app, " +
                           "speed counting will restart too even thought it saves the last count number.\n" +
-                          "Functionality -> The app saves the last count number, and when started, " +
+                          " - Functionality -> The app stores the last count number every 3 seconds, and when started, " +
                           "the count begins from the number it was before.\n" +
-                          "Max Pace      -> Max pace for the session. I bet you may have some fun " +
-                          "competing with others :)\n\n" +
-                            "If you have any questions, please, mail me: " +
+                          " - Max Pace      -> Max pace for the session. I bet you can have some fun " +
+                          "competing with others, or maybe predicting what you need without counting " +
+                          "until the end :)\n\n" +
+                            "If you have any questions, mail me: " +
                             Commands.Email;
             var msgbox = new MessageDialog(content, "About");
             msgbox.Commands.Add(new UICommand("OK"));
