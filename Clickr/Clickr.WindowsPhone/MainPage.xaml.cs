@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Email;
 using Windows.ApplicationModel.Store;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -35,11 +40,30 @@ namespace Clickr
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
-            HideWarning();
-            ShowPredictions();
+            InitializeCounter();
+
         }
 
         public Counter Counter { get { return Counter.GetInstance(); } }
+        public Persistence Persistence { get { return Persistence.GetInstance(); } }
+        public Commands Commands { get { return new PhoneCommands(); } }
+
+        private async void InitializeCounter()
+        {
+            CounterLabel.Text = await Persistence.ReadLast();
+            var aux = int.Parse(CounterLabel.Text);
+            CounterLabel.Text = aux.ToString("00000");
+            Counter.GetInstance(aux);
+
+            HideWarning();
+            ShowPredictions();
+            ShowMaxPace();
+        }
+
+        private void ShowMaxPace()
+        {
+            MaxPaceButton.Label = "Max pace: " + Counter.MaxPace;
+        }
 
         private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -90,8 +114,11 @@ namespace Clickr
         private void Predict()
         {
             var p = Counter.Predict();
-            if(PredictionLabel.Visibility == Visibility.Visible)
+            if (PredictionLabel.Visibility == Visibility.Visible)
+            {
                 PredictionLabel.Text = p;
+                ShowMaxPace();
+            }
         }
 
         private void Reset()
@@ -137,8 +164,55 @@ namespace Clickr
 
         private void RateAndReviewButton_Clicked(object sender, RoutedEventArgs e)
         {
+            Rate();
+        }
+
+        private static void Rate()
+        {
             Windows.System.Launcher.LaunchUriAsync(
                 new Uri("ms-windows-store:reviewapp?appid=4b4ad23b-5625-40fa-82a7-59f9e8e67f01"));
+        }
+
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            var content = "Clickr Counter\n" +
+                                   "Developed by Thiago Garcia\n\n" +
+                                   "Hope you find it app helpful. It was for me " +
+                                   "when I needed a counter and didn't have the " +
+                                   "real counter machine.\n" +
+                                   "Thanks for downloading! If you liked and have a minute" +
+                                   ", please, rate it. I'd really appreciate :)\n\n" +
+                                   "If you have any questions, mail me: " +
+                                   Commands.Email;
+            var msgbox = new MessageDialog(content, "About");
+            msgbox.Commands.Add(new UICommand("Sure, rate this app!") { Invoked = command => Rate() });
+            msgbox.Commands.Add(new UICommand("Mail developer") { Invoked = command => Commands.Mail() });
+
+            msgbox.ShowAsync();
+        }
+
+        private void InstructionsButton_Click(object sender, RoutedEventArgs e)
+        {
+            var content = "Clickr Counter Instructions\n\n" +
+                          " - Counter       -> Just tap anywhere in the image and you'll be " +
+                          "counting anything you want.\n" +
+                          " - Pace          -> It shows the average speed you're counting following " +
+                          "these rules: 1) If you hide predictions, it will restart the pace " +
+                          "counting when you show predictions again; 2) If you close the app, " +
+                          "speed counting will restart too even thought it saves the last count number.\n" +
+                          " - Functionality -> The app stores the last count number every 3 seconds, and when started, " +
+                          "the count begins from the number it was before.\n" +
+                          " - Max Pace      -> Max pace for the session. I bet you can have some fun " +
+                          "competing with others, or maybe predicting what you need without counting " +
+                          "until the end :)\n\n" +
+                            "If you have any questions, mail me: " +
+                            Commands.Email;
+            var msgbox = new MessageDialog(content, "About");
+            msgbox.Commands.Add(new UICommand("OK"));
+            msgbox.Commands.Add(new UICommand("Mail developer") { Invoked = command => Commands.Mail() });
+            msgbox.CancelCommandIndex = 0;
+
+            msgbox.ShowAsync();
         }
     }
 }
