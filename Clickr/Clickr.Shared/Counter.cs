@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Windows.UI.Xaml;
 
 namespace Clickr
 {
@@ -10,6 +11,14 @@ namespace Clickr
         {
             Count = init;
             ResetPrediction();
+            ConfigureSaveTimer();
+        }
+
+        private void ConfigureSaveTimer()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += SaveCount;
         }
 
         public Persistence Persistence { get { return Persistence.GetInstance(); } }
@@ -32,13 +41,11 @@ namespace Clickr
                 StartPrediction(Count);
             }
 
-            SaveCount();
-
             LastClickShowPredictions = ShowPredictions;
             return Count = Count > 99999 ? 0 : Count;
         }
 
-        private void SaveCount()
+        private void SaveCount(object sender, object e)
         {
             if (SaveTime.AddSeconds(3) > DateTime.Now)
                 return;

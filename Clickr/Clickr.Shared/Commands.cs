@@ -13,7 +13,7 @@ namespace Clickr
                 new Uri("ms-windows-store:reviewapp?appid=4b4ad23b-5625-40fa-82a7-59f9e8e67f01"));
         }
 
-        public string Email { get { return "tgarcia@thiagogarcia.net"; } }
+        public string Email { get { return "thiagosgarcia+cc@gmail.com"; } }
 
         public abstract void Mail();
     }

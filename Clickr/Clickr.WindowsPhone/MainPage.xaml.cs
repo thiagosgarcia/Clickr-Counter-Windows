@@ -196,11 +196,12 @@ namespace Clickr
             var content = "Clickr Counter Instructions\n\n" +
                           " - Counter       -> Just tap anywhere in the image and you'll be " +
                           "counting anything you want.\n" +
+                          " - Reset Counter -> Double tap that black ugly-rounded button on the middle right.\n" +
                           " - Pace          -> It shows the average speed you're counting following " +
                           "these rules: 1) If you hide predictions, it will restart the pace " +
                           "counting when you show predictions again; 2) If you close the app, " +
                           "speed counting will restart too even thought it saves the last count number.\n" +
-                          " - Functionality -> The app stores the last count number every 3 seconds, and when started, " +
+                          " - Functionality -> The app stores the last count number every second, and when started, " +
                           "the count begins from the number it was before.\n" +
                           " - Max Pace      -> Max pace for the session. I bet you can have some fun " +
                           "competing with others, or maybe predicting what you need without counting " +
